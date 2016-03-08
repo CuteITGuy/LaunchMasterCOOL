@@ -48,6 +48,14 @@
       <Project>{33A5DF99-1312-4023-A6EF-EABB9848F5A6}</Project>
       <Name>CB.Model.Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\AppUpdaterDataAccess\AppUpdaterDataAccess.csproj">
+      <Project>{87F442DE-0C9C-4B6F-AAB0-DB27AA320F2E}</Project>
+      <Name>AppUpdaterDataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AppUpdaterModels\AppUpdaterModels.csproj">
+      <Project>{B58D28D4-8E4B-40C2-B0A2-FC91896D18EA}</Project>
+      <Name>AppUpdaterModels</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CB.Model.Common", "..\CB.Mo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppUpdaterModels", "AppUpdaterModels\AppUpdaterModels.csproj", "{B58D28D4-8E4B-40C2-B0A2-FC91896D18EA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppUpdaterDataAccess", "AppUpdaterDataAccess\AppUpdaterDataAccess.csproj", "{87F442DE-0C9C-4B6F-AAB0-DB27AA320F2E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{B58D28D4-8E4B-40C2-B0A2-FC91896D18EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B58D28D4-8E4B-40C2-B0A2-FC91896D18EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B58D28D4-8E4B-40C2-B0A2-FC91896D18EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{87F442DE-0C9C-4B6F-AAB0-DB27AA320F2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87F442DE-0C9C-4B6F-AAB0-DB27AA320F2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87F442DE-0C9C-4B6F-AAB0-DB27AA320F2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87F442DE-0C9C-4B6F-AAB0-DB27AA320F2E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
