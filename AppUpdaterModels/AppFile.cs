@@ -19,6 +19,8 @@ namespace AppUpdaterModels
         private string _fileName;
         private string _folderPath;
         private byte[] _hash;
+
+        private bool _isStartupFile;
         private long _size;
         private string _uploadPath;
         private Version _version;
@@ -78,6 +80,12 @@ namespace AppUpdaterModels
             set { SetProperty(ref _hash, value); }
         }
 
+        public bool IsStartupFile
+        {
+            get { return _isStartupFile; }
+            set { SetProperty(ref _isStartupFile, value); }
+        }
+
         public long Size
         {
             get { return _size; }
@@ -99,6 +107,12 @@ namespace AppUpdaterModels
 
 
         #region Implementation
+        private static string GetAssemblyDescription(string filePath)
+        {
+            var fileVersionInfo = FileVersionInfo.GetVersionInfo(filePath);
+            return fileVersionInfo.FileDescription;
+        }
+
         private static Version GetAssemblyVersion(string filePath)
         {
             var fileVersionInfo = FileVersionInfo.GetVersionInfo(filePath);
@@ -123,12 +137,6 @@ namespace AppUpdaterModels
             var contents = File.ReadAllText(filePath);
             var match = Regex.Match(contents, PATTERN);
             return match.Groups.Count > 1 ? match.Groups[1].Value : null;
-        }
-
-        private static string GetAssemblyDescription(string filePath)
-        {
-            var fileVersionInfo = FileVersionInfo.GetVersionInfo(filePath);
-            return fileVersionInfo.FileDescription;
         }
 
         private static Version GetGenericVersion(string filePath)

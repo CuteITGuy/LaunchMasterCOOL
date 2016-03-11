@@ -1,4 +1,4 @@
-USE Tool
+USE AppSynchronizer
 GO
 
 IF OBJECT_ID('SaveFile', 'P') IS NOT NULL
@@ -20,11 +20,13 @@ CREATE PROCEDURE SaveFile
 	)
 AS
 BEGIN
-	DECLARE	@existed	BIT
+	DECLARE	@existed	BIT = 0
 
-	SELECT	@existed = 1
+	SELECT	@existed = 1,
+			@FileId = FileId
 	FROM	dbo.[File]
-	WHERE	FileId = @FileId
+	WHERE	FileId = @FileId OR
+			(FileName = @FileName AND FolderPath = @FolderPath)  
 
 	IF @existed = 1
 	BEGIN

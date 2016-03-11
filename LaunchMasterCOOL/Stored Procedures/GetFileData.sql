@@ -1,4 +1,4 @@
-USE Tool
+USE AppSynchronizer
 GO
 
 IF OBJECT_ID('GetFileData', 'P') IS NOT NULL
@@ -11,7 +11,7 @@ CREATE PROCEDURE GetFileData
 	)
 AS
 BEGIN
-	SELECT	F.FileName, F.Data, F.Hash, F.FolderPath
+	SELECT	F.Data, F.Hash
 	FROM	dbo.[File] F
 	WHERE	F.FileId = @FileId
 END

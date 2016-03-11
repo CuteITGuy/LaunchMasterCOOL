@@ -3,10 +3,56 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:AppUpdaterCOOL"
+        xmlns:vmd="clr-namespace:AppUpdaterViewModels;assembly=AppUpdaterViewModels"
+        xmlns:mdl="clr-namespace:AppUpdaterModels;assembly=AppUpdaterModels"
+        xmlns:system="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
+
+    <Window.Resources>
+        <vmd:MainWindowViewModel x:Key="ViewModel" />
+
+        <DataTemplate x:Key="IdColumnTemplate" DataType="vmd:ApplicationRowViewModel">
+            <TextBlock Text="{Binding Application.ApplicationId}" />
+        </DataTemplate>
+        <DataTemplate x:Key="NameColumnTemplate" DataType="vmd:ApplicationRowViewModel">
+            <TextBlock Text="{Binding Application.ApplicationName}" />
+        </DataTemplate>
+        <DataTemplate x:Key="NameEditColumnTemplate" DataType="vmd:ApplicationRowViewModel">
+            <TextBox Text="{Binding Application.ApplicationName}" />
+        </DataTemplate>
+        <DataTemplate x:Key="VersionColumnTemplate" DataType="vmd:ApplicationRowViewModel">
+            <TextBlock Text="{Binding Application.Version}" />
+        </DataTemplate>
+        <DataTemplate x:Key="VersionEditColumnTemplate" DataType="vmd:ApplicationRowViewModel">
+            <TextBox Text="{Binding Application.Version}" />
+        </DataTemplate>
+        <DataTemplate x:Key="DescriptionColumnTemplate" DataType="vmd:ApplicationRowViewModel">
+            <TextBlock Text="{Binding Application.Description}" />
+        </DataTemplate>
+        <DataTemplate x:Key="DescriptionEditColumnTemplate" DataType="vmd:ApplicationRowViewModel">
+            <TextBox Text="{Binding Application.Description}" />
+        </DataTemplate>
+    </Window.Resources>
+
+    <Window.DataContext>
+        <StaticResource ResourceKey="ViewModel" />
+    </Window.DataContext>
+
     <Grid>
-        
+        <DataGrid ItemsSource="{Binding Applications}" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTemplateColumn Header="ID" CellTemplate="{StaticResource IdColumnTemplate}" />
+                <DataGridTemplateColumn Header="Name"
+                                        CellTemplate="{StaticResource NameColumnTemplate}"
+                                        CellEditingTemplate="{StaticResource NameEditColumnTemplate}" />
+                <DataGridTemplateColumn Header="Version"
+                                        CellTemplate="{StaticResource VersionColumnTemplate}"
+                                        CellEditingTemplate="{StaticResource VersionEditColumnTemplate}" />
+                <DataGridTemplateColumn Header="Descrition"
+                                        CellTemplate="{StaticResource DescriptionColumnTemplate}"
+                                        CellEditingTemplate="{StaticResource DescriptionEditColumnTemplate}" />
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Window>

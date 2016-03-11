@@ -12,7 +12,7 @@ namespace AppUpdaterViewModels
     public class MainWindowViewModel: ViewModelBase
     {
         #region Fields
-        private SysApplication[] _applications;
+        private ApplicationRowViewModel[] _applications;
         private readonly AppUpdaterContext _appUpdaterContext = new AppUpdaterContext();
         private bool _canLoad;
         private IEnumerable<AppFile> _files;
@@ -25,7 +25,7 @@ namespace AppUpdaterViewModels
 
 
         #region  Properties & Indexers
-        public SysApplication[] Applications
+        public ApplicationRowViewModel[] Applications
         {
             get { return _applications; }
             private set { SetProperty(ref _applications, value); }
